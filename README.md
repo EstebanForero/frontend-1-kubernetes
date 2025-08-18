@@ -67,3 +67,4 @@ export default tseslint.config([
   },
 ])
 ```
+template read me
