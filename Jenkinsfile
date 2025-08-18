@@ -14,7 +14,7 @@ pipeline {
                     echo "Starting Docker build for frontend..."
                     echo "This will compile the Vite app with Bun and package it into an Nginx-based image."
 
-                    def imageName = "${env.DOCKERHUB_USERNAME}/${env.APP_NAME}:${env.BUILD_NUMBER}"
+                    def imageName = "${env.DOCKERHUB_USERNAME}/${env.APP_NAME}:1.${env.BUILD_NUMBER}.0"
                     def customImage
 
                     try {
