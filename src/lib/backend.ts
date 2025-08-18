@@ -1,11 +1,11 @@
 import type { Axios } from "axios";
 
-const axios = require('axios').default;
+import axios from "axios";
 
 const backendUrl = "http://localhost:8080"
 
 const ax: Axios = axios.create({
-  baseUrl: backendUrl,
+  baseURL: backendUrl,
   timeout: 1000,
 })
 

@@ -6,6 +6,7 @@ function App() {
   return (
     <div className='dark:bg-black min-h-screen p-6'>
       <AddProduct />
+      <div className='my-4'></div>
       <ProductTable />
     </div>
   )
