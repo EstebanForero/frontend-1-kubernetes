@@ -19,7 +19,7 @@ RUN chmod +x /entrypoint.sh
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-ENV VITE_BACKEND_URL=OVERRIDE_BACKEND_URL
+ENV VITE_BACKEND_URL=VITE_BACKEND_URL
 
 EXPOSE 80
 
