@@ -5,6 +5,10 @@ pipeline {
         DOCKERHUB_USERNAME = "esteban1930"
         APP_NAME = "frontend-1"
         DOCKER_CREDENTIALS_ID = "dockerhub-credentials"
+
+        HELM_CHART_BRANCH = "master"
+        GIT_CREDENTIALS_ID = "github-credentials"
+        HELM_CHART_REPO = "https://github.com/EstebanForero/parcial-1"
     }
 
     stages {
