@@ -31,6 +31,38 @@ pipeline {
                 }
             }
         }
+
+        stage('Update Helm Chart pipeline') {
+            steps {
+                script {
+                    sh 'rm -rf chart'
+                    sh "git clone --branch ${env.HELM_CHART_BRANCH} https://github.com/EstebanForero/parcial-1.git chart"
+
+                    dir('chart') {
+                        if (false) {
+                            sh """
+                                sed -i '/^backend:/,/^[^ ]/{/tag:/s/tag:[ ]*.*/tag: "1.${BUILD_NUMBER}.0"/}' values.yaml
+                                """
+                        }
+                        if (true) {
+                            sh """
+                                sed -i '/^frontend:/,/^[^ ]/{/tag:/s/tag:[ ]*.*/tag: "1.${BUILD_NUMBER}.0"/}' values.yaml
+                                """
+                        }
+
+                        withCredentials([usernamePassword(credentialsId: 'github-credentials', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) {
+                            sh 'git config --local user.email "jenkins@example.com"'
+                            sh 'git config --local user.name "Jenkins"'
+                            // Set remote using credentials (HTTPS with username:password)
+                            sh 'git remote set-url origin https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/EstebanForero/parcial-1.git'
+                            sh 'git add .'
+                            sh 'git commit -m "Bump version and update image tag(s)"'
+                            sh 'git push origin master'
+                        }
+                    }
+                }
+            }
+        }
     }
 
     post {
