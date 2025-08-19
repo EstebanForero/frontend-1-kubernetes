@@ -15,7 +15,7 @@ const ProductTableItem = (props: Props) => {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          {props.product.id}
+          {props.product.id} - id
         </CardContent>
       </Card>
     </div>
