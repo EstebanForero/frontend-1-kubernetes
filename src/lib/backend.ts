@@ -2,7 +2,7 @@ import type { Axios } from "axios";
 
 import axios from "axios";
 
-//  const backendUrl = "http://localhost:8080"
+// const backendUrl = "http://localhost:8080"
 const backendUrl = "VITE_BACKEND_URL"
 
 const ax: Axios = axios.create({
@@ -24,5 +24,5 @@ export type Product = {
 export async function getProducts() {
   const response = await ax.get<Product[]>('/product')
 
-  return response
+  return response.data
 }

@@ -12,9 +12,11 @@ const ProductTable = () => {
     return <h1>Loading</h1>
   }
 
+  console.log(data)
+
   return (
     <div className="flex flex-col gap-6">
-      {data.data.map(product => <ProductTableItem key={product.id} product={product} />)}
+      {data.map(product => <ProductTableItem key={product.id} product={product} />)}
     </div>
   )
 }
