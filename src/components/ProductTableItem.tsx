@@ -8,7 +8,7 @@ type Props = {
 const ProductTableItem = (props: Props) => {
   return (
     <div>
-      <Card>
+      <Card className='bg-red-500'>
         <CardHeader>
           <CardTitle>
             {props.product.name}
